@@ -174,3 +174,62 @@
     .btn-save:hover { background: #142d54; }
 
     .empty { text-align: center; padding: 3rem; color: var(--muted); font-family: var(--mono); font-size: .85rem; }
+
+/* ── Sección Crear Usuario ───────────────────── */
+.seccion-usuarios {
+  max-width: 480px;
+  margin: 2rem auto;
+  background: #1e1e2e;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  border: 1px solid rgba(255,255,255,0.07);
+}
+
+.seccion-usuarios h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  color: #e2e8f0;
+}
+
+.form-usuario {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-usuario .field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-usuario label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+}
+
+.form-usuario input,
+.form-usuario select {
+  background: #13131f;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  color: #e2e8f0;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-usuario input:focus,
+.form-usuario select:focus {
+  border-color: #6366f1;
+}
+
+.msg-usuario {
+  min-height: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.88rem;
+}

@@ -1,4 +1,4 @@
-  const API = 'https://tecnica6.onrender.com';
+ const API = 'http://localhost:3000';
 
   // Si ya está logueado, redirigir al admin
   if (localStorage.getItem('token')) {

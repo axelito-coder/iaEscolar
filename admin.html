@@ -59,6 +59,29 @@
     </table>
     <div class="pagination" id="paginacion"></div>
   </div>
+  <!-- Sección crear usuario -->
+  <section class="seccion-usuarios">
+   <h2>Crear Usuario</h2>
+    <div id="msgUsuario" class="msg-usuario"></div>
+    <div class="form-usuario">
+     <div class="field">
+       <label>Nombre de usuario</label>
+       <input type="text" id="nuevoUsername" placeholder="usuario123" />
+     </div>
+     <div class="field">
+       <label>Contraseña</label>
+        <input type="password" id="nuevoPassword" placeholder="••••••••" />
+     </div>
+      <div class="field">
+        <label>Rol</label>
+       <select id="nuevoRol">
+         <option value="usuario">Usuario</option>
+         <option value="admin">Admin</option>
+        </select>
+     </div>
+     <button class="btn-primary" onclick="crearUsuario()">Crear usuario</button>
+   </div>
+  </section>
 </main>
 
 <!-- Modal agregar/editar -->

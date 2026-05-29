@@ -32,7 +32,7 @@ const pool = new Pool({
   database: process.env.DB_NAME,
   user:     process.env.DB_USER,
   password: process.env.DB_PASSWORD,
-  ssl: { rejectUnauthorized: false },
+  ssl: false,
 });
 
 pool.connect((err, client, release) => {
@@ -250,6 +250,28 @@ app.delete('/api/preguntas/:id', authMiddleware, async (req, res) => {
     res.status(500).json({ error: 'Error al eliminar.' });
   }
 });
+
+// POST /api/usuarios — crear usuario (solo admin)
+app.post('/api/usuarios', authMiddleware, async (req, res) => {
+  const { username, password, rol = 'usuario' } = req.body;
+  if (!username || !password)
+    return res.status(400).json({ error: 'Faltan campos.' });
+  try {
+    const hash = await bcrypt.hash(password, 10);
+    const result = await pool.query(
+      'INSERT INTO usuarios (username, password, rol) VALUES ($1, $2, $3) RETURNING id, username, rol',
+      [username, hash, rol]
+    );
+    res.status(201).json(result.rows[0]);
+  } catch (err) {
+    if (err.code === '23505')
+      return res.status(400).json({ error: 'El usuario ya existe.' });
+    res.status(500).json({ error: 'Error al crear usuario.' });
+  }
+});
+
+
+
 
 // =============================================
 const PORT = process.env.PORT || 3000;

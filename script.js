@@ -1,5 +1,5 @@
 
-  const API = 'https://tecnica6.onrender.com/api/chat';
+  const API = 'http://localhost:3000';
   let historial = [];
 
   // ── Helpers ──────────────────────────────────
@@ -73,7 +73,7 @@
     mostrarTyping();
 
     try {
-      const res = await fetch(API, {
+      const res = await fetch(`${API}/api/chat`, {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
         body:    JSON.stringify({ mensaje: texto, historial }),

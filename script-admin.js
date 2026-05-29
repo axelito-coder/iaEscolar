@@ -1,4 +1,4 @@
-  const API     = 'https://tecnica6.onrender.com';
+  const API = 'http://localhost:3000';
   const token   = localStorage.getItem('token');
   let preguntas = [];
   let editandoId = null;
@@ -187,5 +187,39 @@
 
   // Cerrar modal con Escape
   document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarModal(); });
+  // ── Crear usuario ─────────────────────────────
+async function crearUsuario() {
+  const username = document.getElementById('nuevoUsername').value.trim();
+  const password = document.getElementById('nuevoPassword').value.trim();
+  const rol      = document.getElementById('nuevoRol').value;
+  const msg      = document.getElementById('msgUsuario');
 
+  if (!username || !password) {
+    msg.textContent = '⚠️ Completá todos los campos.';
+    msg.style.color = 'tomato';
+    return;
+  }
+
+  try {
+    const res  = await fetch(`${API}/api/usuarios`, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({ username, password, rol }),
+    });
+    const data = await res.json();
+
+    if (!res.ok) {
+      msg.textContent = '❌ ' + data.error;
+      msg.style.color = 'tomato';
+    } else {
+      msg.textContent = `✅ Usuario "${data.username}" creado correctamente.`;
+      msg.style.color = '#4ade80';
+      document.getElementById('nuevoUsername').value = '';
+      document.getElementById('nuevoPassword').value = '';
+    }
+  } catch (err) {
+    msg.textContent = '❌ Error de conexión.';
+    msg.style.color = 'tomato';
+  }
+}  
   cargar();
