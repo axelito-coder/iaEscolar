@@ -1,4 +1,4 @@
- const API = 'http://localhost:3000';
+const API = window.location.origin;
 
   // Si ya está logueado, redirigir al admin
   if (localStorage.getItem('token')) {
