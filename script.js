@@ -1,4 +1,4 @@
-<script>
+
   // ── Configuración ────────────────────────────
   const API = 'http://localhost:3000/api/chat';
   let historial = [];
@@ -116,4 +116,3 @@
     this.style.height = 'auto';
     this.style.height = Math.min(this.scrollHeight, 120) + 'px';
   });
-</script>
