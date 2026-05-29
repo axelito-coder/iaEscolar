@@ -17,6 +17,14 @@ const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 app.use(cors());
 app.use(express.json());
 
+const path = require('path');
+
+app.use(express.static(__dirname));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'chat.html'));
+});
+
 // =============================================
 //  CONEXIÓN A POSTGRESQL
 // =============================================
