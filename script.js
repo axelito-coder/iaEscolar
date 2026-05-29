@@ -1,6 +1,5 @@
 
-  // ── Configuración ────────────────────────────
-  const API = 'http://localhost:3000/api/chat';
+  const API = 'https://tecnica6.onrender.com/api/chat';
   let historial = [];
 
   // ── Helpers ──────────────────────────────────
