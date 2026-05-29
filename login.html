@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acceso Admin — Técnica N°6</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="">
+</head>
+<body>
+<div class="card">
+  <div class="logo-wrap">
+    <div class="logo">T6</div>
+    <h1>Panel Administrativo</h1>
+    <p>Escuela Técnica N°6 · Morón</p>
+  </div>
+
+  <div class="error-msg" id="errorMsg"></div>
+
+  <div class="field">
+    <label>Usuario</label>
+    <input type="text" id="username" placeholder="admin" autocomplete="username" />
+  </div>
+  <div class="field">
+    <label>Contraseña</label>
+    <input type="password" id="password" placeholder="••••••••" autocomplete="current-password" />
+  </div>
+
+  <button type="submit" id="loginBtn" onclick="login()">Ingresar</button>
+
+  <div class="divider">
+    <a href="/">← Volver al chatbot</a>
+  </div>
+</div>
+<script src="script-login.js"></script>
+</body>
+</html>

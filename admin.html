@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Técnica N°6</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style-admin.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">T6</div>
+  <div>
+    <h1>Panel Administrativo</h1>
+    <p>Escuela Técnica N°6 · Morón</p>
+  </div>
+  <div class="header-right">
+    <span class="user-badge" id="userBadge"></span>
+    <button class="btn-sm btn-chat" onclick="window.location.href='/'">💬 Chatbot</button>
+    <button class="btn-sm btn-logout" onclick="logout()">Salir</button>
+  </div>
+</header>
+
+<main>
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat"><div class="stat-num" id="statTotal">—</div><div class="stat-label">Total preguntas</div></div>
+    <div class="stat"><div class="stat-num" id="statActivas">—</div><div class="stat-label">Activas</div></div>
+    <div class="stat"><div class="stat-num" id="statCategorias">—</div><div class="stat-label">Categorías</div></div>
+  </div>
+
+  <!-- Toolbar -->
+  <div class="toolbar">
+    <input type="text" id="buscar" placeholder="🔍 Buscar pregunta..." oninput="filtrar()" />
+    <select id="filtroCat" onchange="filtrar()">
+      <option value="">Todas las categorías</option>
+    </select>
+    <button class="btn-primary" onclick="abrirModal()">+ Nueva pregunta</button>
+  </div>
+
+  <!-- Tabla -->
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Pregunta</th>
+          <th>Respuesta</th>
+          <th>Categoría</th>
+          <th>Activa</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="tablaBody">
+        <tr><td colspan="6" class="empty">Cargando...</td></tr>
+      </tbody>
+    </table>
+    <div class="pagination" id="paginacion"></div>
+  </div>
+</main>
+
+<!-- Modal agregar/editar -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <h2 id="modalTitulo">Nueva pregunta</h2>
+    <div class="field">
+      <label>Pregunta</label>
+      <textarea id="mPregunta" rows="3" placeholder="¿Cuál es la pregunta?"></textarea>
+    </div>
+    <div class="field">
+      <label>Respuesta</label>
+      <textarea id="mRespuesta" rows="4" placeholder="Respuesta completa..."></textarea>
+    </div>
+    <div class="field">
+      <label>Categoría</label>
+      <input type="text" id="mCategoria" placeholder="Ej: Inscripciones y Requisitos" list="catList" />
+      <datalist id="catList"></datalist>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="cerrarModal()">Cancelar</button>
+      <button class="btn-save" onclick="guardar()">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<script src="script-admin"></script>
+</body>
+</html>
