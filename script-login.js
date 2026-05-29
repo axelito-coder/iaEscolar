@@ -32,7 +32,13 @@
 
       localStorage.setItem('token', data.token);
       localStorage.setItem('usuario', data.username);
-      window.location.href = '/admin.html';
+      localStorage.setItem('rol', data.rol);
+
+      if (data.rol === 'admin') {
+        window.location.href = '/admin.html';
+      } else {
+        window.location.href = '/chat.html';
+      }
 
     } catch (err) {
       mostrarError(err.message);

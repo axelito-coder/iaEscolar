@@ -17,7 +17,7 @@ app.use(express.static(__dirname));
 // =============================================
 //  RUTAS DE PÁGINAS
 // =============================================
-app.get('/',           (req, res) => res.sendFile(path.join(__dirname, 'chat.html')));
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'login.html')));
 app.get('/login',      (req, res) => res.sendFile(path.join(__dirname, 'login.html')));
 app.get('/login.html', (req, res) => res.sendFile(path.join(__dirname, 'login.html')));
 app.get('/admin',      (req, res) => res.sendFile(path.join(__dirname, 'admin.html')));
