@@ -1,4 +1,4 @@
-  const API = window.location.origin;
+  const API = 'http://localhost:3000';
   const token   = localStorage.getItem('token');
   let preguntas = [];
   let editandoId = null;
